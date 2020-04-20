@@ -1,9 +1,13 @@
 ﻿using Book.API.Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace Book.API.Controllers
 {
-    public class HomeController : Controller
+    [Route("api/[Controller]")]
+    [ApiController]
+    public class HomeController : ControllerBase
     {
         private readonly IBookService bookService;
 
@@ -12,15 +16,19 @@ namespace Book.API.Controllers
             this.bookService = bookService;
         }
 
-        public string Index()
+        [HttpGet]
+        [ProducesResponseType(typeof(string), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> Index()
         {
-            return "Hello Book Microservice :)";
+            return Ok("Hello Book Microservice :)");
         }
 
-        public int DoSomething(string name, string email)
+        [HttpGet("DoSomething")]
+        [ProducesResponseType(typeof(string), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> DoSomething(string name, string email)
         {
             var book = bookService.AddBook(name, email);
-            return book.Id;
+            return Ok(book);
         }
     }
 }
