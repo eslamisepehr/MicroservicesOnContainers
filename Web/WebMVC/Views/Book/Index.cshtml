@@ -1,0 +1,24 @@
+﻿@model WebMVC.ViewModels.Book
+
+<html>
+<head>
+</head>
+<body>
+    <p>Please enter book data:</p>
+    <form method="post">
+        <p>Name:</p>
+        <input type="text" name="name" value="" required />
+        <p>Email:</p>
+        <input type="email" name="email" value="" required />
+        <br />
+        <br />
+        <input type="submit" value="Add Book" />
+    </form>
+    @if (Model != null)
+    {
+        <hr />
+        <p>Book Id: @Model.Id</p>
+        <p>Book Name: @Model.Name</p>
+    }
+</body>
+</html>
