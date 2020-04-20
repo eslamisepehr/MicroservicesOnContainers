@@ -1,12 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace Email.API.Controllers
 {
-    public class HomeController : Controller
+    [Route("api/[Controller]")]
+    [ApiController]
+    public class HomeController : ControllerBase
     {
-        public string Index()
+        [HttpGet]
+        [ProducesResponseType(typeof(string), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> Index()
         {
-            return "Hello Email Microservice :)";
+            return Ok("Hello Email Microservice :)");
         }
     }
 }
