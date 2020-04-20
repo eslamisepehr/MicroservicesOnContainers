@@ -7,6 +7,7 @@
     <PackageTags>EslamiSepehr,EventBus,RabbitMQ</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>EslamiSepehr. All rights reserved.</Copyright>
+    <Version>1.5.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
